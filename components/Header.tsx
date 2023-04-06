@@ -6,7 +6,9 @@ function Header() {
     z-50 shadow-md'>
         {/* left */}
         <div className='flex space-x-2 items-center'>
-            <Image src='https://links.papareact.com/4t3'
+            <Image
+                src='https://links.papareact.com/4t3'
+                // src='https://seeklogo.com/images/O/open-ai-logo-8B9BFEDC26-seeklogo.com.png'
                 alt='logo'
                 height={30}
                 width={30}
