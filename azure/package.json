@@ -1,7 +1,6 @@
 {
-  "name": "azure",
+  "name": "microsoft-gpt-dalle-build-azure-function",
   "version": "1.0.0",
-  "type": "commonjs",
   "description": "",
   "scripts": {
     "start": "func start",
@@ -10,7 +9,7 @@
   "dependencies": {
     "@azure/functions": "^4.0.0-alpha.7",
     "@azure/storage-blob": "^12.13.0",
-    "axios": "^1.3.5",
+    "axios": "^1.3.4",
     "openai": "^3.2.1"
   },
   "main": "src/functions/*.js"

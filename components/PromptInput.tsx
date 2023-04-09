@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from "react"
-import fetchSuggestionFromChatGPT from "@/lib/fetchSuggestionFromChatGPT"
+import fetchSuggestionFromChatGPT from "../lib/fetchSuggestionFromChatGPT"
 import useSWR from 'swr'
 
 function PromptInput() {
@@ -20,9 +20,32 @@ function PromptInput() {
 
     // "OPEN_AI_KEY": "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"
 
+    const submitPrompt = async (useSuggestion?: boolean) => {
+        const inputPrompt = input;
+        setInput("");
+
+        //p is the prompt to send to api
+        const p = useSuggestion ? suggestion : inputPrompt;
+
+        const res = await fetch('/api/generateImage', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ prompt: p })
+        })
+
+        const data = await res.json();
+    }
+
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        await submitPrompt();
+    }
+
     return (
         <div className="m-10">
-            <form className="flex flex-col lg:flex-row shadow-md
+            <form onSubmit={handleSubmit} className="flex flex-col lg:flex-row shadow-md
             shadow-slate-400/10 border rounded-md lg:divide-x">
                 <textarea
                     value={input}
