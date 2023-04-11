@@ -5,6 +5,9 @@ const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
 });
 
+console.log('config', process.env.OPENAI_API_KEY);
+
+
 const openai = new OpenAIApi(configuration)
 
 module.exports = openai;

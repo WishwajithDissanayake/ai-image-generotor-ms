@@ -22,6 +22,8 @@ app.http("generateImage", {
             n: 1,
             size: "1024x1024",
         });
+
+        console.log('res', response);
         image_url = response.data.data[0].url;
 
         // Download the image and return it as a arraybuffer

@@ -5,6 +5,8 @@ app.http("getChatGPTSuggestion", {
     methods: ["GET"],
     authLevel: "anonymous",
     handler: async (request, context) => {
+
+        console.log('test 01', request, 'test 02', context);
         const response = await openai.createCompletion({
             model: "text-davinci-003",
             prompt:
